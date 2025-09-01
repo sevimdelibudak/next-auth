@@ -14,14 +14,36 @@ if (!clientId || !clientSecret || !issuer) {
 const handler = NextAuth({
   providers: [
     Auth0Provider({
-      clientId: clientId,
-      clientSecret: clientSecret,
-      issuer: issuer,
+      clientId,
+      clientSecret,
+      issuer,
+      authorization: {
+        params: {
+          scope: 'openid profile email',
+          audience: process.env.AUTH0_AUDIENCE, // ✅ burası environment’tan gelsin
+        },
+      },
     }),
   ],
   session: {
-    strategy: "jwt",
+    strategy: 'jwt',
+  },
+  callbacks: {
+    async jwt({ token, user, account, profile }) {
+      // Auth0'dan gelen roles claim'i varsa token içine ekle
+      if (profile && (profile as any).roles) {
+        token.roles = (profile as any).roles;
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      if (token.roles) {
+        (session.user as any).roles = token.roles;
+      }
+      return session;
+    },
   },
 });
 
 export { handler as GET, handler as POST };
+
