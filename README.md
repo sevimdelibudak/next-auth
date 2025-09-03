@@ -1,14 +1,16 @@
-# Proje Adı
+# Next.js Güvenli Yemek Uygulaması
 
-Bu proje, bir Next.js uygulamasına Auth0 ve NextAuth.js kullanarak modern kimlik doğrulama ve yetkilendirme (authorization) özelliklerinin nasıl eklendiğini gösteren örnek bir uygulamadır. Uygulama, farklı kullanıcı rolleri için sayfa erişimini kısıtlar.
+Bu proje, modern bir web uygulamasının nasıl güvenli hale getirileceğini ve kullanıcı deneyiminin nasıl zenginleştirileceğini gösteren örnek bir Next.js uygulamasıdır. Proje, kullanıcı kimlik yönetimi için **Auth0** ve **NextAuth.js** entegrasyonlarını içerirken, görsel olarak çekici bir yemek uygulaması konsepti üzerine kurulmuştur.
 
 ## Özellikler
 
-- **Giriş/Çıkış:** Kullanıcıların güvenli bir şekilde oturum açmasını ve kapatmasını sağlar.
-- **Kullanıcı Profili:** Giriş yapan kullanıcılar için özel bir profil sayfası oluşturur.
-- **Yetkilendirme:** "admin" rolüne sahip kullanıcılar, özel bir admin paneli sayfasına erişebilir.
-- **Middleware Koruması:** Giriş yapmamış kullanıcıları yetkisiz sayfalardan yönlendirir.
-- **Docker Desteği:** Uygulama, bir Docker konteyneri içinde çalıştırılmaya hazırdır.
+- **Gelişmiş Kullanıcı Deneyimi:** Daha iyi bir görünüm ve his için görsel olarak çekici bir ana sayfa, başlık (Header) ve altbilgi (Footer) bileşenleri içerir.
+- **Güvenli Kimlik Doğrulama:** Auth0 üzerinden güvenli kullanıcı girişi ve çıkışı sağlar.
+- **Rol Tabanlı Yetkilendirme:** Kullanıcı rolleri (`admin`, `user`) tanımlanarak belirli sayfalara (`/admin`) erişim kısıtlanır.
+- **Kapsayıcı Desteği:** Proje, bir Docker konteyneri içinde çalıştırılmak üzere hazırlanmıştır.
+- **Kod Kalitesi:** Temiz kod ve SOLID prensiplerine uygun bir yapı hedeflenmiştir.
+
+---
 
 ## Kurulum ve Çalıştırma
 
