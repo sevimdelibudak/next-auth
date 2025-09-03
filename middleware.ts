@@ -1,4 +1,3 @@
-// middleware.ts
 import { NextResponse } from 'next/server';
 import { getToken } from 'next-auth/jwt';
 import type { NextRequest } from 'next/server';
@@ -6,21 +5,23 @@ import type { NextRequest } from 'next/server';
 export async function middleware(request: NextRequest) {
   const token = await getToken({ req: request, secret: process.env.NEXTAUTH_SECRET });
 
-  // DEBUGGING: Terminale token değerini yazdır
-  console.log('Middleware Token:', token);
+  const isProfilePage = request.nextUrl.pathname.startsWith('/profile');
+  const isAdminPage = request.nextUrl.pathname.startsWith('/admin');
 
-  // Admin sayfası için rol kontrolü
-  if (
-    request.nextUrl.pathname.startsWith('/admin') &&
-    (!token || !Array.isArray(token.roles) || !token.roles.includes('admin'))
-  ) {
-    return NextResponse.redirect(new URL('/login', request.url));
-  }
-
-  // Dashboard için normal oturum kontrolü
-  if (request.nextUrl.pathname.startsWith('/dashboard')) {
-    if (!token) {
+  // Adım 1: Kullanıcı giriş yapmış mı kontrol et
+  if (!token) {
+    if (isProfilePage || isAdminPage) {
       return NextResponse.redirect(new URL('/login', request.url));
+    }
+    return NextResponse.next();
+  }
+  
+  // Adım 2: Giriş yapmış kullanıcıların rollerini kontrol et
+  if (isAdminPage) {
+    const roles = token.roles;
+    if (!Array.isArray(roles) || !roles.includes('admin')) {
+      // Rolü olmayanları oldukları yerde bırak
+      return NextResponse.next();
     }
   }
 
@@ -28,5 +29,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/dashboard/:path*', '/admin/:path*'],
+  matcher: ['/profile', '/admin/:path*'],
 };

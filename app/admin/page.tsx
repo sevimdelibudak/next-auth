@@ -1,40 +1,31 @@
-// app/admin/page.tsx
-
 'use client';
 
 import { useSession } from 'next-auth/react';
 
-type UserWithRoles = {
-  name?: string | null;
-  email?: string | null;
-  image?: string | null;
-  roles?: string[];
-};
-
 export default function AdminPage() {
   const { data: session, status } = useSession();
-  const user = session?.user as UserWithRoles;
-
-  // TEMPORARY DEBUGGING: Add this line to log the session data
-  console.log('Session data:', session);
 
   if (status === 'loading') {
-    return <div>Yükleniyor...</div>;
+    return (
+      <div className="flex min-h-screen flex-col items-center justify-center p-24">
+        <p>Yükleniyor...</p>
+      </div>
+    );
   }
 
-  if (!user || !user.roles || !user.roles.includes('admin')) {
-    return <div>Yetkisiz erişim. Sadece adminler görebilir.</div>;
+  if (session?.user?.roles?.includes('admin')) {
+    return (
+      <div className="flex min-h-screen flex-col items-center justify-center p-24">
+        <h1 className="text-4xl font-bold mb-8">Admin Paneli</h1>
+        <p className="text-xl">Hoş geldin, Admin! Sadece sen bu sayfayı görebilirsin.</p>
+      </div>
+    );
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-6 bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-lg text-center w-full max-w-sm">
-        <h1 className="text-2xl font-bold mb-6 text-gray-800">Admin Paneli</h1>
-        <p className="mb-6 text-gray-600">
-          Hoş geldin, <span className="font-semibold">{user.name}</span>!
-        </p>
-        <p className="text-gray-600">Burası sadece adminler için korumalı bir sayfa.</p>
-      </div>
-    </main>
+    <div className="flex min-h-screen flex-col items-center justify-center p-24">
+      <h1 className="text-4xl font-bold mb-8 text-red-500">Yetkisiz Erişim!</h1>
+      <p className="text-xl">Sadece admin rolüne sahip kullanıcılar bu sayfayı görebilir.</p>
+    </div>
   );
 }
