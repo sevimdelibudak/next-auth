@@ -123,5 +123,13 @@ Eğer projeyi Docker konteyneri içinde çalıştırmak isterseniz, aşağıdaki
 3.  **Uygulamaya Erişim:**  
     http://localhost:3000 adresinden uygulamaya erişebilirsiniz.
 
+###Giriş Yapma
+Projeyi incelemeyi kolaylaştırmak adına, test amaçlı bir admin hesabı oluşturdum. Bu hesap bilgileri aşağıdadır:
+E-posta: admin123@gmail.com
+Şifre: Admin-123
+
+Eğer user olarak giriş yapmak isterseniz de bu hesap bilgilerini kullanabilirsiniz.
+E-posta: Deneme123@gmail.com
+Şifre: Deneme-123
 
 
