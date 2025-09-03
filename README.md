@@ -43,7 +43,6 @@ Projeyi yerel makinenizde çalıştırmak için aşağıdaki adımları izleyin.
     AUTH0_CLIENT_SECRET=hPQOSM3jxO2aS9VQJ6boh-bgNNnJ4k2KdxJvILyqDTZ4As5zHXJ7eKJWTa2R7nKu
     AUTH0_ISSUER=https://next-auth-task.us.auth0.com
     ```
-    (Not: Bu bilgileri Auth0 panelinizden alabilirsiniz.)
 
 ## Uygulamayı Çalıştırma
 
