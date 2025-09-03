@@ -1,36 +1,128 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Proje Adı
 
-## Getting Started
+Bu proje, bir Next.js uygulamasına Auth0 ve NextAuth.js kullanarak modern kimlik doğrulama ve yetkilendirme (authorization) özelliklerinin nasıl eklendiğini gösteren örnek bir uygulamadır. Uygulama, farklı kullanıcı rolleri için sayfa erişimini kısıtlar.
 
-First, run the development server:
+## Özellikler
 
+- **Giriş/Çıkış:** Kullanıcıların güvenli bir şekilde oturum açmasını ve kapatmasını sağlar.
+- **Kullanıcı Profili:** Giriş yapan kullanıcılar için özel bir profil sayfası oluşturur.
+- **Yetkilendirme:** "admin" rolüne sahip kullanıcılar, özel bir admin paneli sayfasına erişebilir.
+- **Middleware Koruması:** Giriş yapmamış kullanıcıları yetkisiz sayfalardan yönlendirir.
+- **Docker Desteği:** Uygulama, bir Docker konteyneri içinde çalıştırılmaya hazırdır.
+
+## Kurulum ve Çalıştırma
+
+Projeyi yerel makinenizde çalıştırmak için aşağıdaki adımları izleyin.
+
+### Ön Koşullar
+
+- Node.js (v18.x veya üstü)
+- npm
+- Git
+- Docker (sadece Docker ile çalıştırmak isterseniz)
+
+### Kurulum Adımları
+
+1.  **Projeyi Klonla:**
+    ```bash
+    git clone https://github.com/sevimdelibudak/next-auth
+    cd next-auth
+    ```
+
+2.  **Bağımlılıkları Yükle:**
+    ```bash
+    npm install
+    ```
+
+3.  **Ortam Değişkenlerini Ayarla:**
+    Proje ana dizininde `.env.local` adında bir dosya oluştur ve içine Auth0 kimlik bilgilerinizi gir. Bu bilgiler, uygulamanın Auth0 ile iletişim kurması için gereklidir.
+
+    ```bash
+    AUTH0_SECRET=dofdpfdfdfodplofpgfogkogkopgopgpogkpogktpogtrggjkraty
+    AUTH0_CLIENT_ID=3T0nZZFRYXXcrX1r8YPDNrEUrBFcIKgh
+    AUTH0_CLIENT_SECRET=hPQOSM3jxO2aS9VQJ6boh-bgNNnJ4k2KdxJvILyqDTZ4As5zHXJ7eKJWTa2R7nKu
+    AUTH0_ISSUER=https://next-auth-task.us.auth0.com
+    ```
+    (Not: Bu bilgileri Auth0 panelinizden alabilirsiniz.)
+
+## Uygulamayı Çalıştırma
+
+### Geliştirme Ortamı
+
+Yerel bir geliştirme sunucusu başlatmak için:
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+# Proje Adı
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Bu proje, bir Next.js uygulamasına Auth0 ve NextAuth.js kullanarak modern kimlik doğrulama ve yetkilendirme (authorization) özelliklerinin nasıl eklendiğini gösteren örnek bir uygulamadır. Uygulama, farklı kullanıcı rolleri için sayfa erişimini kısıtlar.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Özellikler
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Giriş/Çıkış:** Kullanıcıların güvenli bir şekilde oturum açmasını ve kapatmasını sağlar.
+- **Kullanıcı Profili:** Giriş yapan kullanıcılar için özel bir profil sayfası oluşturur.
+- **Yetkilendirme:** "admin" rolüne sahip kullanıcılar, özel bir admin paneli sayfasına erişebilir.
+- **Middleware Koruması:** Giriş yapmamış kullanıcıları yetkisiz sayfalardan yönlendirir.
+- **Docker Desteği:** Uygulama, bir Docker konteyneri içinde çalıştırılmaya hazırdır.
 
-## Learn More
+## Kurulum ve Çalıştırma
 
-To learn more about Next.js, take a look at the following resources:
+Projeyi yerel makinenizde çalıştırmak için aşağıdaki adımları izleyin.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Ön Koşullar
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Node.js (v18.x veya üstü)
+- npm
+- Git
+- Docker (sadece Docker ile çalıştırmak isterseniz)
 
-## Deploy on Vercel
+### Kurulum Adımları
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1.  **Projeyi Klonla:**
+    ```bash
+    git clone https://github.com/sevimdelibudak/next-auth
+    cd next-auth
+    ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2.  **Bağımlılıkları Yükle:**
+    ```bash
+    npm install
+    ```
+
+3.  **Ortam Değişkenlerini Ayarla:**
+    Proje ana dizininde `.env.local` adında bir dosya oluştur ve içine Auth0 kimlik bilgilerinizi gir. Bu bilgiler, uygulamanın Auth0 ile iletişim kurması için gereklidir.
+
+    ```bash
+    AUTH0_SECRET=dofdpfdfdfodplofpgfogkogkopgopgpogkpogktpogtrggjkraty
+    AUTH0_CLIENT_ID=3T0nZZFRYXXcrX1r8YPDNrEUrBFcIKgh
+    AUTH0_CLIENT_SECRET=hPQOSM3jxO2aS9VQJ6boh-bgNNnJ4k2KdxJvILyqDTZ4As5zHXJ7eKJWTa2R7nKu
+    AUTH0_ISSUER=https://next-auth-task.us.auth0.com
+    ```
+    (Not: Bu bilgileri Auth0 panelinizden alabilirsiniz.)
+
+## Uygulamayı Çalıştırma
+
+### Geliştirme Ortamı
+
+Yerel bir geliştirme sunucusu başlatmak için:
+```bash
+npm run dev
+
+### Docker ile Çalıştırma
+
+Eğer projeyi Docker konteyneri içinde çalıştırmak isterseniz, aşağıdaki adımları izleyin.
+
+1.  **Docker İmajını Oluşturun:**
+    ```bash
+    docker build -t next-app-docker .
+    ```
+
+2.  **Konteyneri Çalıştırın:**
+    ```bash
+    docker run -p 3000:3000 next-app-docker
+    ```
+
+3.  **Uygulamaya Erişim:**  
+    http://localhost:3000 adresinden uygulamaya erişebilirsiniz.
+
+
+
